@@ -17,4 +17,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BuinessLayer\BuinessLayer.csproj" />
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>

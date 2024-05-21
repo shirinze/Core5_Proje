@@ -10,7 +10,6 @@ namespace EntityLayer.Concreate
     public class Feature
     {
         [Key]
-        [Key]
         public int FeatureId { get; set; }
         public string Header { get; set; }
         public string Name { get; set; }
