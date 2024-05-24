@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace BuinessLayer.Concreate
 {
-    public class TestimoniamManager : ITestimonialService
+    public class TestimonialManager : ITestimonialService
     {
         ITestimonialDal _testimonialDal;
-        public TestimoniamManager(ITestimonialDal testimonialDal)
+        public TestimonialManager(ITestimonialDal testimonialDal)
         {
             _testimonialDal = testimonialDal;
         }
