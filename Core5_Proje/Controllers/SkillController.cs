@@ -10,17 +10,30 @@ namespace Core5_Proje.Controllers
         SkillManager skillmanager = new SkillManager(new EfSkillDal());
         public IActionResult Index()
         {
+            ViewBag.v1 = "Skill";
+            ViewBag.v2 = "skillist";
+            ViewBag.v3 = "Skill";
             return View(skillmanager.TGetByList());
         }
         public IActionResult SkillAdd()
         {
+            ViewBag.v1 = "Skill";
+            ViewBag.v2 = "Addskill";
+            ViewBag.v3 = "Skill";
             return View();
         }
         [HttpPost]
-        public IActionResult SkillAdd(Skill s)
+        public IActionResult SkillAdd(Skill skill)
         {
+            skillmanager.TAdd(skill);
             
-            return View();
+            return RedirectToAction("Index","Skill");
+        }
+        public IActionResult SkillDelete(int id)
+        {
+            var value = skillmanager.TGetById(id);
+            skillmanager.TDelete(value);
+            return RedirectToAction("Index");
         }
 
 

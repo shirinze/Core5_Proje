@@ -40,8 +40,8 @@
                             </div>
                         </div>
                     </td>
-                    <td><a href="#" class="btn btn-outline-danger">delete</a></td>
-                    <td><a href="#" class="btn btn-outline-warning">update</a></td>
+                    <td><a asp-controller="Skill" asp-action="SkillDelete" asp-route-id="@item.SkilID" class="btn btn-outline-danger">delete</a></td>
+                    <td><a asp-controller="Skill" asp-action="SkillUpdate" class="btn btn-outline-warning">update</a></td>
 
                  
                 </tr>
@@ -51,5 +51,5 @@
 
         </tbody>
     </table>
-    <a href="#" class="btn btn-success">new skill</a>
+    <a asp-controller="Skill" asp-action="SkillAdd" class="btn btn-success">new skill</a>
 </div>
