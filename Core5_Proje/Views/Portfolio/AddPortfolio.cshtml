@@ -10,27 +10,27 @@
 {
     @Html.Label("project name")
     @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
-    <br />
+    @Html.ValidationMessageFor(x=>x.Name)
     <br />
     @Html.Label("image url")
     @Html.TextBoxFor(x=>x.ImageUrl,new {@class="form-control"})
-    <br />
+    @Html.ValidationMessageFor(x=>x.ImageUrl)
     <br />
     @Html.Label("project image")
-    @Html.TextBoxFor(x=>x.ProjectUrl,new {@class="form-control"})
-    <br />
+    @Html.TextBoxFor(x=>x.ImageUrl2,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.ImageUrl2)
     <br />
     @Html.Label("image url2")
-    @Html.TextBoxFor(x=>x.ImageUrl2,new {@class="form-control"})
-    <br />
-    <br />
-    @Html.Label("platform")
-    @Html.TextBoxFor(x=>x.Platform,new {@class="form-control"})
-    <br />
+    @Html.TextBoxFor(x=>x.ProjectUrl,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.ProjectUrl)
     <br />
     @Html.Label("price")
     @Html.TextBoxFor(x=>x.Price,new {@class="form-control"})
-    <br /><br />
+    @Html.ValidationMessageFor(x=>x.Price)
+    <br /> @Html.Label("value")
+    @Html.TextBoxFor(x=>x.Value,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Value)
+    <br />
     <button class="btn btn-outline-success">save</button>
 
 
