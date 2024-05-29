@@ -1,0 +1,25 @@
+﻿@model EntityLayer.Concreate.Feature
+@{
+    ViewData["Title"] = "UpdateFeature";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br /><br /><br /><br />
+@using (Html.BeginForm("UpdateFeature", "Feature", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.FeatureId)
+    <br />
+    @Html.Label("header")
+    @Html.TextBoxFor(x=>x.Header,new {@class="form-control"})
+    <br />
+    <br />
+    @Html.Label("name")
+    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+    <br />
+    <br />
+    @Html.Label("title")
+    @Html.TextBoxFor(x=>x.Title,new {@class="form-control"})
+    <br />
+    <br />
+    <button class="btn btn-info">update</button>
+}

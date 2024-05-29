@@ -1,0 +1,47 @@
+﻿@model EntityLayer.Concreate.About
+@{
+    ViewData["Title"] = "AboutUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+@using (Html.BeginForm("AboutUpdate", "About", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.AboutID)
+    <br />
+    @Html.Label("title")
+    @Html.TextBoxFor(x=>x.Title,new {@class="form-control"})
+    <br />
+    <br />
+    @Html.Label("age")
+    @Html.TextBoxFor(x=>x.Age,new {@class="form-control"})
+    <br />
+    <br />
+    @Html.Label("mail")
+    @Html.TextBoxFor(x=>x.Mail,new {@class="form-control"})
+    <br />
+    <br />
+    @Html.Label("phone")
+    @Html.TextBoxFor(x=>x.Phone,new {@class="form-control"})
+    <br />
+    <br />
+    @Html.Label("description")
+    @Html.TextAreaFor(x=>x.Description,10,3,new{@class="form-control"})
+    <br />
+    <br />
+    @Html.Label("image url")
+    @Html.TextBoxFor(x=>x.ImageUrl,new{@class="form-control"})
+    <br />
+    <br />
+    @Html.Label("adress")
+    @Html.TextBoxFor(x=>x.Adress,new{@class="form-control"})
+    <br />
+    <br />
+    
+    <button class="btn btn-info">update</button>
+}
+
+
