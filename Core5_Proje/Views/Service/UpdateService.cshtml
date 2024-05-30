@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concreate.Service
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm("UpdateService", "Service", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.ServiceID)
+    @Html.Label("title")
+    @Html.TextBoxFor(x=>x.Title,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Title)
+    <br />
+    @Html.Label("image url")
+    @Html.TextBoxFor(x=>x.ImageUrl,new {@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.ImageUrl)
+    <br />
+    <button class="btn btn-outline-success">save</button>
+}
+
+
