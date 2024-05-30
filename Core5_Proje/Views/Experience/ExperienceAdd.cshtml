@@ -1,28 +1,36 @@
 ﻿@model EntityLayer.Concreate.Experience
 @{
     ViewData["Title"] = "ExperienceAdd";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-
-<br /><br /><br /><br />
 <form asp-controller="Experience" asp-action="ExperienceAdd" method="post">
-    <div class="form-group">
-        <label for="exampleFormControlInput1">name</label>
-        <input type="text" class="form-control" name="Name" id="exampleFormControlInput1" placeholder="experience name">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">new experience form</h4>
+                
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="text" class="form-control" name="Date">
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="text" class="form-control" name="ImageUrl" >
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" name="Description"  rows="6"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary mr-2">Submit</button>
+                    <button class="btn btn-outline-danger">Cancel</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="exampleFormControlInput1">date</label>
-        <input type="text" class="form-control" name="Date" id="exampleFormControlInput1" placeholder="enter date">
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlInput1">image</label>
-        <input type="text" class="form-control" name="ImageUrl" id="exampleFormControlInput1" >
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">description</label>
-        <textarea class="form-control" name="Description" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div><br /><br />
-    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-

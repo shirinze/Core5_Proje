@@ -2,7 +2,7 @@
 
 namespace Core5_Proje.Controllers
 {
-    public class DashboardController : Controller
+    public class TestController : Controller
     {
         public IActionResult Index()
         {

@@ -1,7 +1,7 @@
 ﻿@model List<EntityLayer.Concreate.Portfolio>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 @if (ViewBag.alertdelete != null)
 {
@@ -93,5 +93,5 @@
     </div>
 </div>
 
-<a href="/Portfolio/AddPortfolio" class="btn btn-primary">new project</a>
+<a href="/Portfolio/AddPortfolio" class="btn btn-outline-primary">new project</a>
 
