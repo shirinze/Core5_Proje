@@ -1,56 +1,45 @@
 ﻿@model List<EntityLayer.Concreate.Skill>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
-<div class="card-header border-0">
-    <h3 class="mb-0">skill list</h3>
-</div>
-<!-- Light table -->
-<div class="table-responsive">
-    <table class="table align-items-center table-flush">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col" class="sort" data-sort="name">#</th>
-                <th scope="col" class="sort" data-sort="budget">title</th>
-                <th scope="col" class="sort" data-sort="status">value</th>
-                <th scope="col" class="sort" data-sort="status"></th>
-                <th scope="col" class="sort" data-sort="status"></th>
-
-            </tr>
-        </thead>
-        <tbody class="list">
-            @foreach (var item in Model)
-            {
-                <tr>
-
-                    <th>
-                        @item.SkilID
-                    </th>
-                    <td class="budget">
-                        @item.Title
-                    </td>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <span class="completion mr-2">@item.Value %</span>
-                            <div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td><a asp-controller="Skill" asp-action="SkillDelete" asp-route-id="@item.SkilID" class="btn btn-outline-danger">delete</a></td>
-                    <td><a asp-controller="Skill" asp-action="SkillUpdate" asp-route-id="@item.SkilID" class="btn btn-outline-danger">update</a></td>
-                    
-
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Skill Table</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Value</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.SkilID</td>
+                                <td>@item.Title</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width:@item.Value%" aria-valuenow="@item.Value%" aria-valuemin="0" aria-valuemax="100">@item.Value%</div>
+                                    </div>
+                                </td>
+                                <td><a asp-controller="Skill" asp-action="SkillDelete" asp-route-id="@item.SkilID" class="btn btn-outline-danger">Delete</a></td>
+                                <td><a asp-controller="Skill" asp-action="SkillUpdate" asp-route-id="@item.SkilID" class="btn btn-outline-danger">Update</a></td>
+                                
+                            </tr>
+                        }
                  
-                </tr>
-
-            }
-         
-
-        </tbody>
-    </table>
-    <a asp-controller="Skill" asp-action="SkillAdd" class="btn btn-success">new skill</a>
+                    </tbody>
+                </table>
+                <br />
+                <a href="/Skill/SkillAdd" class="btn btn-outline-primary">New Skill</a>
+            </div>
+        </div>
+    </div>
 </div>

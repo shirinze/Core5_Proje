@@ -1,13 +1,8 @@
 ﻿@model EntityLayer.Concreate.About
 @{
     ViewData["Title"] = "AboutUpdate";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
-
-<br />
-<br />
-<br />
-<br />
 @using (Html.BeginForm("AboutUpdate", "About", FormMethod.Post))
 {
     @Html.HiddenFor(x=>x.AboutID)

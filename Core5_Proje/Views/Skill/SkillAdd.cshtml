@@ -1,21 +1,28 @@
 ﻿@model EntityLayer.Concreate.Skill
 @{
     ViewData["Title"] = "SkillAdd";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-
-<br /><br /><br /><br />
 <form asp-controller="Skill" asp-action="SkillAdd" method="post">
-    <div class="form-group">
-        <label for="exampleInputEmail1">skill title</label>
-        <input type="text" class="form-control" name="Title"  aria-describedby="emailHelp" >
-        
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">new Skill form</h4>
+
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="Title">
+                    </div>
+                    <div class="form-group">
+                        <label>value</label>
+                        <input type="text" class="form-control" name="Value">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary mr-2">Submit</button>
+                    <button class="btn btn-outline-danger">Cancel</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Value</label>
-        <input type="text" class="form-control" name="Value" id="exampleInputPassword1" >
-    </div>
- 
-    <button type="submit" class="btn btn-primary">Submit</button>
 </form>

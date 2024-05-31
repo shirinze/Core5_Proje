@@ -28,7 +28,7 @@ namespace Core5_Proje.Controllers
         {
             skillmanager.TAdd(skill);
             
-            return RedirectToAction("Index","Skill");
+            return RedirectToAction("Index");
         }
         public IActionResult SkillDelete(int id)
         {
@@ -49,7 +49,7 @@ namespace Core5_Proje.Controllers
         public IActionResult SkillUpdate(Skill s)
         {
             skillmanager.TUpdate(s);
-            return RedirectToAction("Index","Skill");
+            return RedirectToAction("Index");
         }
 
 

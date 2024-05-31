@@ -1,20 +1,30 @@
 ﻿@model EntityLayer.Concreate.Skill
 @{
     ViewData["Title"] = "SkillUpdate";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<h1>SkillUpdate</h1>
-<br /><br /><br /><br />
-@using (Html.BeginForm("SkillUpdate","Skill",FormMethod.Post))
+@using (Html.BeginForm("SkillUpdate", "Skill", FormMethod.Post))
 {
-    @Html.HiddenFor(x=>x.SkilID)<br />
-    @Html.Label("Skill title")
-    @Html.TextBoxFor(x=>x.Title, new {@class="form-control"})<br /><br />
-    @Html.Label("Skill Value")
-    @Html.TextBoxFor(x=>x.Value,new {@class="form-control"})<br /><br />
-   <button class="btn btn-success">save</button>
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update Skill</h4>
 
-
+                <form class="forms-sample">
+                    <input type="hidden" name="SkilID" value="@Model.SkilID" />
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="Title" value="@Model.Title">
+                    </div>
+                    <div class="form-group">
+                        <label>Value</label>
+                        <input type="text" class="form-control" name="Value" value="@Model.Value">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary mr-2">Submit</button>
+                    <button class="btn btn-outline-danger">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
 }
-
