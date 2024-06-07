@@ -1,0 +1,57 @@
+﻿@model List<EntityLayer.Concreate.Portfolio>
+
+<div class="row ">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Project List</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> URL </th>
+                                <th> Project Name </th>
+                                <th> Project Url </th>
+                                <th> Cost </th>
+                                <th> value </th>
+                                <th> Status </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.PortfolioID </td>
+                                    <td>
+                                        <img src="@item.ImageUrl" alt="image" />
+                                    </td>
+                                    <td> @item.Name </td>
+                                    <td> @item.ProjectUrl </td>
+                                    <td> @item.Price </td>
+                                    <td> @item.Value% </td>
+                                    @if(item.Value>=90)
+                                    {
+                                        <td>
+                                            <div class="badge badge-outline-success">Approved</div>
+                                        </td>
+                                    }
+                                    else if(item.Value<90 && item.Value>=80)
+                                    {
+                                        <td><div class="badge badge-outline-warning">Pending</div></td>
+                                    }
+                                    else if(item.Value<80)
+                                    {
+                                        <td><div class="badge badge-outline-danger">Rejected</div></td>
+                                    }
+
+                                </tr>
+                            }
+                         
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
