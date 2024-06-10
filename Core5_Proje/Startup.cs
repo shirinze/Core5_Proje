@@ -52,6 +52,9 @@ namespace Core5_Proje
             {
                 endpoints.MapControllerRoute(name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute(name: "areas",
+                    areaName: "Writer",
+                    pattern: "{area:exists}/{controller=Default}/{action=Index}/{id?}");
             });
         }
     }
