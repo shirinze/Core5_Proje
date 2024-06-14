@@ -1,23 +1,55 @@
 ﻿using Core5_Proje.Areas.Writer.Models;
+using EntityLayer.Concreate;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Core5_Proje.Areas.Writer.Controllers
 {
+    [Area("Writer")]
     public class RegisterController : Controller
     {
-        [Area("Writer")]
+        private readonly UserManager<WriterUser> _usermanager;
+        public RegisterController(UserManager<WriterUser> usermanager)
+        {
+            _usermanager = usermanager;
+        }
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View(new UserRegisterViewModel());
         }
         [HttpPost]
-        public IActionResult Index(UserRegisterViewModel userviewmodel)
+        public async Task<IActionResult> Index(UserRegisterViewModel p)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                
+                WriterUser w = new WriterUser()
+                {
+                    Name = p.Vname,
+                    SureName = p.Vsurename,
+                    UserName = p.VUserName,
+                    Email = p.VMail
+                };
+
+                var result = await _usermanager.CreateAsync(w, p.VPassword);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
+                }
+
+
             }
             return View();
         }
+       
     }
 }

@@ -1,3 +1,5 @@
+using DataAccessLayer.Concreate;
+using EntityLayer.Concreate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +27,8 @@ namespace Core5_Proje
         {
             //services.AddRazorPages();
             services.AddMvc();
+            services.AddDbContext<Context>();
+            services.AddIdentity<WriterUser, WriterRole>().AddEntityFrameworkStores<Context>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
