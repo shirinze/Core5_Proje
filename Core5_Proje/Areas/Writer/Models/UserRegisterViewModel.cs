@@ -18,7 +18,7 @@ namespace Core5_Proje.Areas.Writer.Models
         public string VPassword { get; set; }
 
         [Required(ErrorMessage ="please enter the password again.")]
-        [Compare("Password",ErrorMessage ="password not the same.")]
+        [Compare("VPassword", ErrorMessage ="password not the same.")]
         public string VConfirmPassword { get; set; }
 
         [Required(ErrorMessage ="please enter the email")]

@@ -31,20 +31,23 @@ namespace Core5_Proje.Areas.Writer.Controllers
                     UserName = p.VUserName,
                     Email = p.VMail
                 };
-
-                var result = await _usermanager.CreateAsync(w, p.VPassword);
-
-                if (result.Succeeded)
+                if(p.VPassword==p.VConfirmPassword)
                 {
-                    return RedirectToAction("Index", "Login");
-                }
-                else
-                {
-                    foreach (var item in result.Errors)
+                    var result = await _usermanager.CreateAsync(w, p.VPassword);
+
+                    if (result.Succeeded)
                     {
-                        ModelState.AddModelError("", item.Description);
+                        return RedirectToAction("Index", "Login");
+                    }
+                    else
+                    {
+                        foreach (var item in result.Errors)
+                        {
+                            ModelState.AddModelError("", item.Description);
+                        }
                     }
                 }
+           
 
 
             }
@@ -53,3 +56,4 @@ namespace Core5_Proje.Areas.Writer.Controllers
        
     }
 }
+//123456aA$
