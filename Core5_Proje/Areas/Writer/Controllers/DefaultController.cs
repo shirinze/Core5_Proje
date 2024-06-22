@@ -14,5 +14,10 @@ namespace Core5_Proje.Areas.Writer.Controllers
         {
             return View(announcementmanager.TGetByList());
         }
+
+        public IActionResult AnnouncementDetail(int id)
+        {
+            return View(announcementmanager.TGetById(id));
+        }
     }
 }

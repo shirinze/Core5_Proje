@@ -1,0 +1,13 @@
+﻿@model EntityLayer.Concreate.Announcement
+@{
+    ViewData["Title"] = "AnnouncementDetail";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>Announcement Details</h1>
+
+<form asp-area="Writer" asp-controller="Default" asp-action="AnnouncementDetail">
+    <input type="hidden" name="ID" value="@Model.ID" /><br /><br />
+   <input type="text" name="Content" value="@Model.Content" />
+</form>
+
