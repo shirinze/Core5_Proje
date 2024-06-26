@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Concreate.WriterUser
+﻿@model Core5_Proje.Areas.Writer.Models.UserEditeViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
@@ -8,33 +8,33 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Profile</h4>
-            <form class="forms-sample">
+            <form class="forms-sample" method="post" enctype="multipart/form-data"> @*resim dosyasini kendi klasorumuze kaydetmek icin*@
                 
                 <div class="form-group">
                     <label for="exampleInputName1">Name</label>
-                    <input type="text" class="form-control" name="Name" value="@Model.Name"  placeholder="Name">
+                    <input type="text" class="form-control" asp-for="Name"  placeholder="Name">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Sure Name</label>
-                    <input type="text" class="form-control" name="SureName" value="@Model.SureName" placeholder="Sure Name">
+                    <input type="text" class="form-control" asp-for="Surename" placeholder="Sure Name">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword4">Password</label>
                     <input type="password" class="form-control"  placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword4">Comfirm Password</label>
-                    <input type="password" class="form-control"  placeholder="Comfirm Password">
+                    <label for="exampleInputPassword4">Confirm Password</label>
+                    <input type="password" class="form-control"  placeholder="Confirm Password">
                 </div>
                 <div class="form-group">
                     <label>Image upload</label>
-                    <input type="file" name="img[]" class="file-upload-default">
-                    <div class="input-group col-xs-12">
+                    <input type="file" asp-for="Picture" />
+@*                    <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                         <span class="input-group-append">
                             <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
-                    </div>
+                    </div>*@
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-light">Cancel</button>

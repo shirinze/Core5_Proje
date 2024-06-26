@@ -37,6 +37,7 @@
   <ItemGroup>
     <Folder Include="Areas\Writer\Data\" />
     <Folder Include="Models\" />
+    <Folder Include="wwwroot\Userimage\" />
     <Folder Include="wwwroot\skydash\.git\objects\info\" />
     <Folder Include="wwwroot\skydash\.git\objects\pack\" />
     <Folder Include="wwwroot\skydash\.git\refs\tags\" />
