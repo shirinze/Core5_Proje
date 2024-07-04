@@ -26,6 +26,11 @@ namespace BuinessLayer.Concreate
             _portfolioDal.Delete(t);
         }
 
+        public List<Portfolio> TGetbyFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public Portfolio TGetById(int id)
         {
             return _portfolioDal.GetById(id);

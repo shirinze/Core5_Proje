@@ -26,6 +26,11 @@ namespace BuinessLayer.Concreate
             _experienceDal.Delete(t);
         }
 
+        public List<Experience> TGetbyFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public Experience TGetById(int id)
         {
             return _experienceDal.GetById(id);

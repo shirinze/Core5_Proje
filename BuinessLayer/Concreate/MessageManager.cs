@@ -27,6 +27,11 @@ namespace BuinessLayer.Concreate
 
         }
 
+        public List<Message> TGetbyFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public Message TGetById(int id)
         {
             return _messageDal.GetById(id);

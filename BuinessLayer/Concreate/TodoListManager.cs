@@ -27,6 +27,11 @@ namespace BuinessLayer.Concreate
             _todolistdal.Delete(t);
         }
 
+        public List<ToDoList> TGetbyFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public ToDoList TGetById(int id)
         {
             return _todolistdal.GetById(id);

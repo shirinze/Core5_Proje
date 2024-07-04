@@ -26,6 +26,11 @@ namespace BuinessLayer.Concreate
             _contactDal.Delete(t);
         }
 
+        public List<Contact> TGetbyFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public Contact TGetById(int id)
         {
             return _contactDal.GetById(id);

@@ -26,6 +26,11 @@ namespace BuinessLayer.Concreate
             _skillDal.Delete(t);
         }
 
+        public List<Skill> TGetbyFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public Skill TGetById(int id)
         {
             return _skillDal.GetById(id);

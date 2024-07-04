@@ -26,6 +26,11 @@ namespace BuinessLayer.Concreate
             _aboutDal.Delete(t);
         }
 
+        public List<About> TGetbyFilter()
+        {
+            throw new NotImplementedException();
+        }
+
         public About TGetById(int id)
         {
             return _aboutDal.GetById(id);
