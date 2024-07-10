@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 
 namespace Core5_Proje.Areas.Writer.Controllers
 {
@@ -13,15 +14,15 @@ namespace Core5_Proje.Areas.Writer.Controllers
     {
         WriterMessageManager writermessagemanager = new WriterMessageManager(new EfWriterMessageDal());
 
-        private readonly UserManager<WriterMessage> _usermanager;
-        public MessageController(UserManager<WriterMessage> usermanager)
+        private readonly UserManager<WriterUser> _usermanager;
+        public MessageController(UserManager<WriterUser> usermanager)
         {
             _usermanager = usermanager;
         }
         public async Task<IActionResult> Index(string p)
         {
-            var value = await _usermanager.FindByNameAsync(User.Identity.Name);
-            p = value.Sender;
+            var values = await _usermanager.FindByNameAsync(User.Identity.Name);
+            p = values.Email;
             return View();
         }
     }
