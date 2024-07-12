@@ -19,11 +19,19 @@ namespace Core5_Proje.Areas.Writer.Controllers
         {
             _usermanager = usermanager;
         }
-        public async Task<IActionResult> Index(string p)
+        public async Task<IActionResult> RecieverMessage(string p)
         {
             var values = await _usermanager.FindByNameAsync(User.Identity.Name);
             p = values.Email;
-            return View();
+            var messagelist = writermessagemanager.GetListRecieverMessage(p);
+            return View(messagelist);
+        }
+        public async Task<IActionResult> SenderMessage(string p)
+        {
+            var values = await _usermanager.FindByNameAsync(User.Identity.Name);
+            p = values.Email;
+            var messagelist = writermessagemanager.GetListSenderMessage(p);
+            return View(messagelist);
         }
     }
 }
