@@ -1,9 +1,13 @@
 ﻿@model List<EntityLayer.Concreate.WriterMessage>
 @{
-    ViewData["Title"] = "RecieverMessage";
+    ViewData["Title"] = "SenderMessage";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
+
+@*@{
+    string color = "";
+}*@
 
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
@@ -16,25 +20,34 @@
                             <th>#</th>
                             <th>Subject</th>
                             <th>Sender</th>
-                            <th>Date</th>
-                            <th>Details</th>
+                            <th>Content</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                         
+                            @*if(item.Status=="new")
+                        {
+                        color = "badge badge-danger";
+                        }
+                        if(item.Status=="workshop")
+                        {
+                        color = "badge badge-warning";
+                        }
+                        if (item.Status == "conferance")
+                        {
+                        color = "badge badge-success";
+                        }*@
                             <tr>
                                 <th>@item.WriterMessageId</th>
                                 <td>@item.Subject</td>
-                                <td>@item.SenderName</td>
                                 <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
 
 
-                                <td><a href="/Writer/Message/MessageDetails/@item.WriterMessageId" class="btn btn-outline-primary">Show Message</a></td>
+                                <td><a href="/Writer/Default/AnnouncementDetail/@item.WriterMessageId" class="btn btn-outline-primary">Show Message</a></td>
                             </tr>
                         }
-                      
+
 
                     </tbody>
                 </table>
@@ -42,3 +55,4 @@
         </div>
     </div>
 </div>
+

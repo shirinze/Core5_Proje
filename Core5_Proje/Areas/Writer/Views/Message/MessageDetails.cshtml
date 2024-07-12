@@ -1,0 +1,21 @@
+﻿@model EntityLayer.Concreate.WriterMessage
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>Message Details</h1>
+<br />
+<form class="form-group">
+    @Html.HiddenFor(x=>x.WriterMessageId,new {@class="form-control"})
+    @Html.Label("Sender Name")
+    @Html.TextBoxFor(x=>x.SenderName,new {@class="form-control"})
+    <br />
+    @Html.Label("Sender Mail")
+    @Html.TextBoxFor(x=>x.Sender,new {@class="form-control"})
+    <br />
+    @Html.Label("Message Content")
+    @Html.TextAreaFor(x=>x.MessageContent,10,3,new {@class="form-control"})
+</form>
+
+
