@@ -30,7 +30,7 @@ namespace BuinessLayer.Concreate
 
         public void TAdd(WriterMessage t)
         {
-            throw new NotImplementedException();
+            _writermessageDal.Insert(t);
         }
 
         public void TDelete(WriterMessage t)
