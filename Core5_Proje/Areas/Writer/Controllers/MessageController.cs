@@ -1,9 +1,11 @@
 ﻿using BuinessLayer.Concreate;
+using DataAccessLayer.Concreate;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concreate;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Markup;
@@ -11,6 +13,7 @@ using System.Windows.Markup;
 namespace Core5_Proje.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
     public class MessageController : Controller
     {
         WriterMessageManager writermessagemanager = new WriterMessageManager(new EfWriterMessageDal());
@@ -59,8 +62,11 @@ namespace Core5_Proje.Areas.Writer.Controllers
             p.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             p.Sender = mail;
             p.SenderName = name;
+            Context c = new Context();
+            var usernamesurename = c.Users.Where(x => x.Email == p.Reciever).Select(y => y.Name + " " + y.SureName).FirstOrDefault();
+            p.RecieverName = usernamesurename;
             writermessagemanager.TAdd(p);
-            return RedirectToAction("SenderMessage","Message");
+            return RedirectToAction("SenderMessage");
         }
     }
 }

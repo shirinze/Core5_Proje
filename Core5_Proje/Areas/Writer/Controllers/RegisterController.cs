@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace Core5_Proje.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
+
     public class RegisterController : Controller
     {
         private readonly UserManager<WriterUser> _usermanager;
