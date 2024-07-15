@@ -13,7 +13,7 @@ using System.Windows.Markup;
 namespace Core5_Proje.Areas.Writer.Controllers
 {
     [Area("Writer")]
-    [Route("Writer/[controller]/[action]")]
+    [Route("Writer/Message")]
     public class MessageController : Controller
     {
         WriterMessageManager writermessagemanager = new WriterMessageManager(new EfWriterMessageDal());
@@ -23,6 +23,8 @@ namespace Core5_Proje.Areas.Writer.Controllers
         {
             _usermanager = usermanager;
         }
+        [Route("")]
+        [Route("RecieverMessage")]
         public async Task<IActionResult> RecieverMessage(string p)
         {
             var values = await _usermanager.FindByNameAsync(User.Identity.Name);
@@ -30,6 +32,8 @@ namespace Core5_Proje.Areas.Writer.Controllers
             var messagelist = writermessagemanager.GetListRecieverMessage(p);
             return View(messagelist);
         }
+        [Route("")]
+        [Route("SenderMessage")]
         public async Task<IActionResult> SenderMessage(string p)
         {
             var values = await _usermanager.FindByNameAsync(User.Identity.Name);
@@ -37,23 +41,27 @@ namespace Core5_Proje.Areas.Writer.Controllers
             var messagelist = writermessagemanager.GetListSenderMessage(p);
             return View(messagelist);
         }
-        
+        [Route("MessageDetails/{id}")]
         public IActionResult MessageDetails(int id)
         {
             WriterMessage writermessage = writermessagemanager.TGetById(id);
             return View(writermessage);
         }
+        [Route("RecieverMessageDetails/{id}")]
         public IActionResult RecieverMessageDetails(int id)
         {
             WriterMessage writermessage = writermessagemanager.TGetById(id);
             return View(writermessage);
         }
-
+        [Route("")]
+        [Route("SendMessage")]
         public IActionResult SendMessage()
         {
             return View();
         }
         [HttpPost]
+        [Route("")]
+        [Route("SendMessage")]
         public async Task<IActionResult> SendMessage(WriterMessage p)
         {
             var values = await _usermanager.FindByNameAsync(User.Identity.Name);

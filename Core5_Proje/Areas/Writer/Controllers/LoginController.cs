@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core5_Proje.Areas.Writer.Controllers
 {
+    
     [Area("Writer")]
     [Route("Writer/[controller]/[action]")]
 
@@ -38,5 +39,11 @@ namespace Core5_Proje.Areas.Writer.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await _signinmanager.SignOutAsync();
+            return RedirectToAction("Index","Login");
+        }
     }
-}//shirinZe13@
+}
