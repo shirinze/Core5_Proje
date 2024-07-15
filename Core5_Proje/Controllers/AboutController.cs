@@ -10,9 +10,7 @@ namespace Core5_Proje.Controllers
         AboutManager aboutmanager = new AboutManager(new EfAboutDal());
         public IActionResult AboutUpdate()
         {
-            ViewBag.v1 = "About";
-            ViewBag.v2 = "updateabout";
-            ViewBag.v3 = "About";
+          
             var value = aboutmanager.TGetById(1);
             return View(value);
         }

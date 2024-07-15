@@ -11,16 +11,11 @@ namespace Core5_Proje.Controllers
         SkillManager skillmanager = new SkillManager(new EfSkillDal());
         public IActionResult Index()
         {
-            ViewBag.v1 = "Skill";
-            ViewBag.v2 = "skillist";
-            ViewBag.v3 = "Skill";
             return View(skillmanager.TGetByList());
         }
         public IActionResult SkillAdd()
         {
-            ViewBag.v1 = "Skill";
-            ViewBag.v2 = "Addskill";
-            ViewBag.v3 = "Skill";
+     
             return View();
         }
         [HttpPost]
@@ -39,10 +34,6 @@ namespace Core5_Proje.Controllers
 
         public IActionResult SkillUpdate(int id)
         {
-            ViewBag.v1 = "Skill";
-            ViewBag.v2 = "skillupdate";
-            ViewBag.v3 = "Skill";
-
             return View(skillmanager.TGetById(id));
         }
         [HttpPost]
