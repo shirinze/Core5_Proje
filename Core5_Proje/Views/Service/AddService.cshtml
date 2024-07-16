@@ -1,13 +1,19 @@
 ﻿@model EntityLayer.Concreate.Service
 @{
     ViewData["Title"] = "AddService";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<br /><br /><br /><br />
+<br /><br />
 
 @using (Html.BeginForm("AddService", "Service", FormMethod.Post))
-{
+{ 
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update Project form</h4>
+                <form class="forms-sample">
+                   
     @Html.Label("Title")
     @Html.TextBoxFor(x=>x.Title,new {@class="form-control"})
     @Html.ValidationMessageFor(x=>x.Title)
@@ -18,6 +24,12 @@
     <br />
     <br />
     <button class="btn btn-outline-success">save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 
 
 }

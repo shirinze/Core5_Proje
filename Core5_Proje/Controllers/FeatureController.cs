@@ -10,9 +10,7 @@ namespace Core5_Proje.Controllers
         FeatureManager featuremanager = new FeatureManager(new EfFeatureDal());
         public IActionResult UpdateFeature()
         {
-            ViewBag.v1 = "Feature";
-            ViewBag.v2 = "updatefeature";
-            ViewBag.v3 = "Feature";
+      
             var result = featuremanager.TGetById(1);
             return View(result);
         }

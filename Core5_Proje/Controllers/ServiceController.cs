@@ -14,16 +14,10 @@ namespace Core5_Proje.Controllers
         ServiceManager servicemaneger = new ServiceManager(new EfServiceDal());
         public IActionResult Index()
         {
-            ViewBag.v1 = "Service";
-            ViewBag.v2 = "servicelist";
-            ViewBag.v3 = "Servive";
             return View(servicemaneger.TGetByList());
         }
         public IActionResult AddService()
         {
-            ViewBag.v1 = "Service";
-            ViewBag.v2 = "serviceAdd";
-            ViewBag.v3 = "Service";
             return View();
         }
         [HttpPost]
@@ -55,10 +49,6 @@ namespace Core5_Proje.Controllers
         }
         public IActionResult UpdateService(int id)
         {
-
-            ViewBag.v1 = "Service";
-            ViewBag.v2 = "serviceUpdate";
-            ViewBag.v3 = "Service";
             return View(servicemaneger.TGetById(id));
         }
         [HttpPost]

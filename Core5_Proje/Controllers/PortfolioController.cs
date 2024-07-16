@@ -13,17 +13,11 @@ namespace Core5_Proje.Controllers
         PortfolioManager portfoliomanager = new PortfolioManager(new EfPortfolioDal());
         public IActionResult Index()
         {
-            ViewBag.v1 = "Portfolio";
-            ViewBag.v2 = "PortfolioList";
-            ViewBag.v3 = "Portfolio";
             return View(portfoliomanager.TGetByList());
         }
 
         public IActionResult AddPortfolio()
         {
-            ViewBag.v1 = "Portfolio";
-            ViewBag.v2 = "PortfoliAdd";
-            ViewBag.v3 = "Portfolio";
             return View();
         }
         [HttpPost]
@@ -56,9 +50,6 @@ namespace Core5_Proje.Controllers
 
         public IActionResult UpdatePortfolio(int id)
         {
-            ViewBag.v1 = "Portfolio";
-            ViewBag.v2 = "updateportfolio";
-            ViewBag.v3 = "Portfolio";
             var values = portfoliomanager.TGetById(id);
             return View(values);
         }
