@@ -19,5 +19,13 @@ namespace Core5_Proje.Controllers
             messagemanager.TDelete(values);
             return RedirectToAction("Index");
         }
+
+        public IActionResult ConactDetail(int id)
+        {
+            var values = messagemanager.TGetById(id);
+            return View(values);
+        }
+
+     
     }
 }

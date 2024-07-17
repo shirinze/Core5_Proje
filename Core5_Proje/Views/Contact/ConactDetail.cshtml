@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concreate.Message
+@{
+    ViewData["Title"] = "ConactDetail";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">message details page</h4>
+                <form class="forms-sample">
+                    @Html.HiddenFor(x=>x.MessageID)
+                    @Html.Label("Project name")
+                    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+                    <br />
+                    @Html.Label("Email")
+                    @Html.TextBoxFor(x=>x.Mail,new {@class="form-control"})
+                    <br />
+                    @Html.Label("Date")
+                    @Html.TextBoxFor(x=>x.Date,new {@class="form-control"})
+                    <br />
+                    @Html.Label("price")
+                    @Html.TextAreaFor(x=>x.Content,6,3,new {@class="form-control"})
+                    <br />
+                <a asp-action="Index" class="btn btn-outline-primary mr-2">Contact Page</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
