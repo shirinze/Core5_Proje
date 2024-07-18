@@ -21,5 +21,18 @@ namespace Core5_Proje.Controllers
             var values = writermessagemanager.GetListSenderMessage(p);
             return View(values);
         }
+
+        public IActionResult AdminMessageDetail(int id)
+        {
+            var values = writermessagemanager.TGetById(id);
+            return View(values);
+        }
+
+        public IActionResult AdminMessageDelete(int id)
+        {
+            var values = writermessagemanager.TGetById(id);
+            writermessagemanager.TDelete(values);
+            return RedirectToAction("Index","AdminMessage");
+        }
     }
 }

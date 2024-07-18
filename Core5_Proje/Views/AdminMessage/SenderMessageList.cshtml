@@ -1,19 +1,19 @@
 ﻿@model List<EntityLayer.Concreate.WriterMessage>
 @{
-    ViewData["Title"] = "RecieverMessageList";
+    ViewData["Title"] = "SenderMessageList";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Writer-Admin Reciever Box</h4>
+            <h4 class="card-title">Writer-Admin Sender Box</h4>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Sender</th>
+                            <th>Reciever</th>
                             <th>Date</th>
                             <th>Subject</th>
                             <th></th>
@@ -25,7 +25,7 @@
                         {
                             <tr>
                                 <td>@item.WriterMessageId</td>
-                                <td>@item.SenderName</td>
+                                <td>@item.RecieverName</td>
                                 <td>@(((DateTime)item.Date).ToString("dd-mmm-yyyy"))</td>
                                 <td>@item.Subject</td>
                                 <td><a href="/AdminMessage/AdminMessageDelete/@item.WriterMessageId" class="btn btn-outline-danger">Delete</a></td>
