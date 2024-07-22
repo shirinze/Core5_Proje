@@ -35,7 +35,7 @@ namespace BuinessLayer.Concreate
 
         public void TDelete(WriterMessage t)
         {
-            throw new NotImplementedException();
+            _writermessageDal.Delete(t);
         }
 
         public List<WriterMessage> TGetbyFilter()

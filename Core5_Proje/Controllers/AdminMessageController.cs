@@ -1,6 +1,10 @@
 ﻿using BuinessLayer.Concreate;
+using DataAccessLayer.Concreate;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concreate;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
 
 namespace Core5_Proje.Controllers
 {
@@ -32,7 +36,25 @@ namespace Core5_Proje.Controllers
         {
             var values = writermessagemanager.TGetById(id);
             writermessagemanager.TDelete(values);
-            return RedirectToAction("Index","AdminMessage");
+           
+            return RedirectToAction("SenderMessageList", "AdminMessage");
+        }
+
+        public IActionResult AdminMessageSend()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AdminMessageSend(WriterMessage p)
+        {
+            p.Sender = "Admin@gmail.com";
+            p.SenderName = "Admin";
+            p.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            Context c = new Context();
+            var values = c.Users.Where(x => x.Email == p.Reciever).Select(y => y.Name + " " + y.SureName).FirstOrDefault();
+            p.RecieverName = values;
+            writermessagemanager.TAdd(p);
+            return RedirectToAction("SenderMessageList", "AdminMessage");
         }
     }
 }
