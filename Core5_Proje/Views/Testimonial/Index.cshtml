@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EntityLayer.Concreate.Testimonial>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="row ">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Referances List</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th> Name </th>
+                                <th> Company </th>
+                                <th> Title </th>
+                                <th></th>
+                                <th></th>
+                                <th> Payment Status </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        <img src="@item.ImageUrl" alt="image" />
+                                        
+                                    </td>
+                                    
+                                    <td> @item.ClientName </td>
+                                    <td> @item.Company </td>
+                                    <td> @item.Title </td>
+                                    <td><a href="/Testimonial/TestimonialDelete/@item.TestimonialID" class="btn btn-outline-danger">Delete</a></td>
+                                    <td><a href="/Testimonial/TestimonialEdite/@item.TestimonialID" class="btn btn-outline-success">Details</a></td>
+                                </tr>
+                            }
+                        
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

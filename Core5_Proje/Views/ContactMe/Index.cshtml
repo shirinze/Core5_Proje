@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concreate.Contact
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index", "ContactMe", FormMethod.Post))
+{
+
+    @Html.HiddenFor(x=>x.ContactID)
+    @Html.Label("Title")
+    @Html.TextBoxFor(x=>x.Title,new {@class="form-control"})
+    <br />
+    @Html.Label("Phone")
+    @Html.TextBoxFor(x=>x.Phone,new {@class="form-control"})
+    <br />
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x=>x.Mail,new {@class="form-control"})
+    <br />
+    @Html.Label("Description")
+    @Html.TextAreaFor(x=>x.Description,3,10,new {@class="form-control"})
+    <br />
+    <button class="btn btn-outline-success">update</button>
+}
+
