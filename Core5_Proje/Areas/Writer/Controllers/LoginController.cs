@@ -1,12 +1,13 @@
 ﻿using Core5_Proje.Areas.Writer.Models;
 using EntityLayer.Concreate;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace Core5_Proje.Areas.Writer.Controllers
 {
-    
+    [AllowAnonymous]
     [Area("Writer")]
     [Route("Writer/[controller]/[action]")]
 
@@ -47,3 +48,4 @@ namespace Core5_Proje.Areas.Writer.Controllers
         }
     }
 }
+//Admin01*
