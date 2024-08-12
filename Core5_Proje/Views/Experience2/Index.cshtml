@@ -9,22 +9,44 @@
     <div class="p-2">
         <button type="button" id="btngetlistall" class="btn btn-outline-primary">all datas</button>
         <button type="button" id="btnadd" class="btn btn-outline-info">save</button>
+        <button type="button" id="btnid" class="btn btn-outline-warning">get by Id</button>
+        <button type="button" id="btndelete" class="btn btn-outline-danger">delete</button>
+        <button type="button" id="btnupdate" class="btn btn-outline-success">update</button>
     </div>
 </div>
 
-<h4 class="text-center">experience list</h4>
-<div class="p-2" id="listuser">veriler gelecek</div>
+<div class="p-2" id="listexperience">
+    
+</div>
+
 <br />
+
+<div class="p-2" id="listbyidexperience">
+</div>
+
+<br />
+
 <div class="col-md-12">
+    <h5>add pannel</h5>
     <input type="text" class="form-control" id="inpname" placeholder="name" />
     <br />
-    <input type="text" class="form-control" id="inpsurename" placeholder="sure name" />
-    <br />
-    <input type="text" class="form-control" id="inpusername" placeholder="username" />
-    <br />
-    <input type="text" class="form-control" id="inpmail" placeholder="mail" />
-    <br />
+    <input type="text" class="form-control" id="inpdate" placeholder="date" />
 </div>
+
+<br />
+
+<div class="col-md-12">
+    <h5>get by Id pannel</h5>
+    <input type="text" class="form-control" id="inpid" placeholder="ID" />
+</div> 
+
+<br />
+
+<div class="col-md-12">
+    <h5>delete pannel</h5>
+    <input type="text" class="form-control" id="inpexpid" placeholder="ID" />
+</div>
+
 @section scripts
     {
     <script>
@@ -38,9 +60,72 @@
                 success: function (funk) {
                     let values = jQuery.parseJSON(funk);
                     console.log(values);
+
+                    let htmlst="<table class=table table-bordered> <tr> <th> ID </th> <th> Title </th> <th> Date </th> </tr>";
+                    $.each(values, (index, value) => { htmlst += `<tr> <td>${value.ExperienceID}</td> <td>${value.Name}</td> <td>${value.Date}</td> </tr>` });
+                    htmlst+= "</table>";
+                    $("#listexperience").html(htmlst);
+
+                    
                 }
             });
         });
+
+        $("#btnadd").click(function() {
+            let values={
+                Name: $("#inpname").val(),
+                Date: $("#inpdate").val()
+            };
+
+            $.ajax({
+                type:"Post",
+                url: "/Experience2/AddExperience/",
+                data:values,
+                success:function(funk1){
+                    let result=jQuery.parseJSON(funk1);
+                    alert(result.Name + "added successfully");
+                }
+
+            });
+        });
+
+        $("#btnid").click(x=>{
+            let id=$("#inpid").val();
+            
+            $.ajax({
+                contentType:"application/json",
+                datatype:"json",
+                type:"get",
+                url: "/Experience2/GetById/",
+                data: { ExperienceID: id },
+
+                success:function(funk2){
+                    let result=jQuery.parseJSON(funk2);
+                    console.log(result);
+
+                    let htmlstr=`<table class=table table-hover> <tr> <th> experience Id</th> <td>${result.ExperienceID}</td> </tr> <tr> <th>
+                    experience title </th> <td> ${result.Name}</td> </tr> </table>`;
+                    $("#listbyidexperience").html(htmlstr);
+                }
+            });
+        });
+
+        $("#btndelete").click(x=>{
+            let id = $("#inpexpid").val();
+
+            $.ajax({
+
+                url: "/Experience2/DeleteExperience/" + id,
+                type:"post",
+                contentType:"/application/json",
+                dataType:"json",
+      
+                success:function(funk3){
+                    loadData();
+                }
+            });
+        });
+       
     </script>
 }
 <script src="~/lib/jquery/dist/jquery.js"></script>
