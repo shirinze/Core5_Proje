@@ -68,6 +68,8 @@ namespace Core5_Proje
                 app.UseHsts();
             }
 
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404/");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();

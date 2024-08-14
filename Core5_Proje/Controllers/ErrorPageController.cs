@@ -8,5 +8,9 @@ namespace Core5_Proje.Controllers
         {
             return View();
         }
+        public IActionResult Error404()
+        {
+            return View();
+        }
     }
 }
