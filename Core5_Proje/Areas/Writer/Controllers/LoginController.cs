@@ -31,7 +31,7 @@ namespace Core5_Proje.Areas.Writer.Controllers
                 var result = await _signinmanager.PasswordSignInAsync(p.Username, p.Passworde, true, true);
                 if(result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Profile");
+                    return RedirectToAction("Index","Profile");
                 }
                 else
                 {
