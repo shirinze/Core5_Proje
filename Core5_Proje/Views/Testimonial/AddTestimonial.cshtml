@@ -1,0 +1,43 @@
+﻿@model EntityLayer.Concreate.Testimonial
+@{
+    ViewData["Title"] = "AddTestimonial";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<form asp-controller="Testimonial" asp-action="AddTestimonial" method="post">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">new referance form</h4>
+
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" name="ClientName">
+                    </div>
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" class="form-control" name="Company">
+                    </div>
+                    <div class="form-group">
+                        <label>ImageUrl</label>
+                        <input type="text" class="form-control" name="ImageUrl">
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="Title">
+                    </div>
+                    <div class="form-group">
+                        <label>Comment</label>
+                        <textarea class="form-control" name="Comment" rows="6"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary mr-2">Submit</button>
+                    <button class="btn btn-outline-danger">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</form>
+
+

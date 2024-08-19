@@ -30,20 +30,14 @@
                                     <td> @item.ProjectUrl </td>
                                     <td> @item.Price </td>
                                     <td> @item.Value% </td>
-                                    @if(item.Value>=90)
-                                    {
-                                        <td>
-                                            <div class="badge badge-outline-success">Approved</div>
-                                        </td>
-                                    }
-                                    else if(item.Value<90 && item.Value>=80)
-                                    {
-                                        <td><div class="badge badge-outline-warning">Pending</div></td>
-                                    }
-                                    else if(item.Value<80)
-                                    {
-                                        <td><div class="badge badge-outline-danger">Rejected</div></td>
-                                    }
+                                   
+                                    <td>
+                                        <a href="/Portfolio/UpdatePortfolio/@item.PortfolioID">
+                                            <div class="badge badge-outline-success">See Details</div>
+                                        </a>
+                                    </td>
+                                    
+                                   
 
                                 </tr>
                             }

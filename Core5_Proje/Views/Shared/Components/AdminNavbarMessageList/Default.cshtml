@@ -7,11 +7,11 @@
         <div class="dropdown-divider"></div>
         <a class="dropdown-item preview-item" href="/AdminMessage/AdminMessageDetail/@item.WriterMessageId">
             <div class="preview-thumbnail">
-                <img src="" alt="image" class="rounded-circle profile-pic">
+                <img src="" alt="image" class="rounded-circle profile-pic" >
             </div>
             <div class="preview-item-content">
                 <p class="preview-subject ellipsis mb-1">@item.SenderName send a message</p>
-                <p class="text-muted mb-0"> @item.Date </p>
+                <p class="text-muted mb-0">@(((DateTime)item.Date).ToString("dd-mmm-yyyy"))</p>
             </div>
         </a>
     }

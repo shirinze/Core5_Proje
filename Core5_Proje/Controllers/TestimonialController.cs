@@ -13,7 +13,16 @@ namespace Core5_Proje.Controllers
             var values = testimonisalmanager.TGetByList();
             return View(values);
         }
-
+        public IActionResult AddTestimonial()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddTestimonial(Testimonial p)
+        {
+            testimonisalmanager.TAdd(p);
+            return RedirectToAction("Index");
+        }
         public IActionResult TestimonialDelete(int id)
         {
             var values = testimonisalmanager.TGetById(id);
